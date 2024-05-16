@@ -7,6 +7,7 @@ class Teacher extends User {
     }
 
     public void displayMenu() {
+
         System.out.println("Welcome to School System Teacher");
         System.out.println("1-Add Assignment");
         System.out.println("2-Grade Assignment");
