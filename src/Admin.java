@@ -138,7 +138,29 @@ class Admin extends User {
     }
 
     public void removeCourses() {
-        // Implementation for removing courses
+        String sql = "DELETE FROM courses WHERE Coursename = ?";
+
+        try (Connection conn = MyJDBC.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            System.out.println("Enter the Coursename of the participant to remove:");
+
+            String Coursename = sc.next();
+
+            // Установка параметра запроса
+            pstmt.setString(1, Coursename);
+
+            // Выполнение запроса
+            int rowsAffected = pstmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Course successfully removed.");
+            } else {
+                System.out.println("Course with the specified name not found.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error removing Course: " + e.getMessage());
+        }
+
     }
 }
 
