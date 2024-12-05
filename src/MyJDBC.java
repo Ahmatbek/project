@@ -8,7 +8,7 @@ public class MyJDBC {
 
     private static final String user = "root";
 
-    private static final String password = "Access9567$";
+    private static final String password = "";
 
 
 
